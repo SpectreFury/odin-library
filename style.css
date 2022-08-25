@@ -219,7 +219,7 @@ section.flex-container {
 .card .button-group .btn-remove {
   border: 2px solid #000;
   color: white;
-  background: red;
+  background: #ff0000;
   transition: all 0.1s ease;
 }
 

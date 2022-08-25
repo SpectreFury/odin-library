@@ -8,6 +8,15 @@ const title = document.getElementById("title");
 const author = document.getElementById("author");
 const pages = document.getElementById("pages");
 const isRead = document.getElementById("read");
+const removeBtn = document.querySelector(".btn-remove");
+const readBtn = document.querySelector(".btn-read");
+const anchorTag = document.querySelector("a");
+
+anchorTag.addEventListener("click", (e) => {
+  // ABSOLUTELY 0 ZERO WHY THIS IS HAPPENING!
+
+  e.preventDefault();
+});
 
 let myLibrary = [];
 
@@ -18,23 +27,60 @@ function Book(title, author, pages, isRead) {
   this.isRead = isRead;
 }
 
+let helpVar;
+function changeStatus(e) {
+  const bookTitle =
+    e.target.parentElement.parentElement.childNodes[0].childNodes[0]
+      .textContent;
+
+  if (e.target.textContent === "Read") {
+    myLibrary.forEach((book) => {
+      if (book.title === bookTitle) {
+        book.isRead = !book.isRead;
+      }
+    });
+    e.target.textContent = "Not Read";
+    e.target.style.backgroundColor = "#ff0000";
+  } else {
+    // Make library entry to true
+    myLibrary.forEach((book) => {
+      if (book.title === bookTitle) {
+        book.isRead = !book.isRead;
+      }
+    });
+    e.target.textContent = "Read";
+    e.target.style.backgroundColor = "#28a745";
+  }
+}
+
 function addBookToLibrary(title, author, pages, isRead) {
   const newBook = new Book(title, author, pages, isRead);
   newBook.display();
   myLibrary.push(newBook);
 }
 
-addBooksBtn.addEventListener("click", () => {
-  modal.classList.add("visible");
-});
+addBooksBtn.addEventListener("click", showModal);
 
-exitModalBtn.addEventListener("click", () => {
+function showModal() {
+  modal.classList.add("visible");
+}
+
+exitModalBtn.addEventListener("click", removeModal);
+
+function removeModal() {
   modal.classList.remove("visible");
-});
+}
+
+removeBtn.addEventListener("click", removeCard);
+readBtn.addEventListener("click", changeStatus);
+
+function removeCard(e) {
+  e.target.parentElement.parentElement.remove();
+}
 
 document.addEventListener("click", (e) => {
   if (e.target.matches("#modal")) {
-    modal.classList.remove("visible");
+    removeModal();
   }
 });
 
@@ -55,7 +101,7 @@ form.addEventListener("submit", (e) => {
   modal.classList.remove("visible");
 });
 
-Book.prototype.display = function () {
+Book.prototype.display = function (e) {
   const card = document.createElement("div");
   const textGroup = document.createElement("div");
   const buttonGroup = document.createElement("div");
@@ -83,11 +129,11 @@ Book.prototype.display = function () {
 
   btnRead.classList.add("btn-read");
   btnRemove.classList.add("btn-remove");
-
   if (this.isRead) {
     btnRead.textContent = "Read";
   } else {
     btnRead.textContent = "Not Read";
+    btnRead.style.backgroundColor = "#ff0000";
   }
 
   btnRemove.textContent = "Remove";
@@ -95,6 +141,9 @@ Book.prototype.display = function () {
   textGroup.append(title, author, pages);
   buttonGroup.append(btnRead, btnRemove);
   cardContainer.append(card);
+
+  btnRemove.onclick = removeCard;
+  btnRead.onclick = changeStatus;
 };
 
 function displayBooks() {
@@ -131,6 +180,7 @@ function displayBooks() {
       btnRead.textContent = "Read";
     } else {
       btnRead.textContent = "Not Read";
+      btnRead.style.backgroundColor = "#ff0000";
     }
 
     btnRemove.textContent = "Remove";
@@ -138,5 +188,8 @@ function displayBooks() {
     textGroup.append(title, author, pages);
     buttonGroup.append(btnRead, btnRemove);
     cardContainer.append(card);
+
+    btnRemove.onclick = removeCard;
+    btnRead.onclick = changeStatus;
   });
 }
