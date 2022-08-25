@@ -18,7 +18,20 @@ anchorTag.addEventListener("click", (e) => {
   e.preventDefault();
 });
 
-let myLibrary = [];
+let myLibrary = [
+  {
+    title: "Harry Potter",
+    author: "JK Rowling",
+    pages: "500",
+    isRead: true,
+  },
+  {
+    title: "Sword Of Destiny",
+    author: "Andrzej Sapkowski",
+    pages: 384,
+    isRead: false,
+  },
+];
 
 function Book(title, author, pages, isRead) {
   this.title = title;
@@ -189,3 +202,5 @@ function displayBooks() {
     btnRead.onclick = changeStatus;
   });
 }
+
+displayBooks();
