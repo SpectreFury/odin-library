@@ -27,7 +27,6 @@ function Book(title, author, pages, isRead) {
   this.isRead = isRead;
 }
 
-let helpVar;
 function changeStatus(e) {
   const bookTitle =
     e.target.parentElement.parentElement.childNodes[0].childNodes[0]
@@ -70,9 +69,6 @@ exitModalBtn.addEventListener("click", removeModal);
 function removeModal() {
   modal.classList.remove("visible");
 }
-
-removeBtn.addEventListener("click", removeCard);
-readBtn.addEventListener("click", changeStatus);
 
 function removeCard(e) {
   e.target.parentElement.parentElement.remove();
