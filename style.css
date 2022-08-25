@@ -51,3 +51,74 @@ nav {
   justify-content: space-between;
   padding: var(--px-xl);
 }
+
+section.flex-container {
+  margin: 50px 0;
+  width: 100%;
+  padding: var(--px-xl);
+}
+
+.card {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  background-color: #dcd7c9;
+  border-radius: 20px;
+  color: #2c3639;
+  padding: 20px;
+}
+
+.card .text-group {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card .text-group .text-title {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.card .text-group .text-author {
+  font-size: 20px;
+  font-weight: 500;
+  font-style: italic;
+  margin-top: 10px;
+}
+
+.card .text-group .text-pages {
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.card .button-group {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  bottom: 0;
+  left: 50%;
+  padding: 0 20px;
+  transform: translate(-50%, -50%);
+}
+
+.card .button-group button {
+  border: 2px solid #2c3639;
+  color: #2c3639;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.card .button-group .btn-read {
+  border: 2px solid #000;
+  color: white;
+  background: #28a745;
+}
+.card .button-group .btn-remove {
+    border: 2px solid #000;
+    color: white;
+    background: red;
+}
