@@ -1,46 +1,19 @@
 const cardContainer = document.querySelector(".flex-container");
 const addBooksBtn = document.querySelector(".btn-add-books");
 const exitModalBtn = document.querySelector(".btn-exit");
+const form = document.querySelector("form");
 const modal = document.querySelector("#modal");
+const addToLibraryBtn = document.querySelector("#addToLibrary");
+const title = document.getElementById("title");
+const author = document.getElementById("author");
+const pages = document.getElementById("pages");
+const isRead = document.getElementById("read");
 
-let myLibrary = [
-  {
-    title: "Game Of Thrones",
-    author: "George R R Martin",
-    pages: 860,
-    isRead: true,
-  },
-  {
-    title: "Introduction To Programming",
-    author: "Bjarne Stroustrup",
-    pages: 568,
-    isRead: true,
-  },
-  {
-    title: "Game Of Thrones",
-    author: "George R R Martin",
-    pages: 860,
-    isRead: true,
-  },
-  {
-    title: "Introduction To Programming",
-    author: "Bjarne Stroustrup",
-    pages: 568,
-    isRead: true,
-  },
-  {
-    title: "Game Of Thrones",
-    author: "George R R Martin",
-    pages: 860,
-    isRead: true,
-  },
-  {
-    title: "Introduction To Programming",
-    author: "Bjarne Stroustrup",
-    pages: 568,
-    isRead: true,
-  },
-];
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+});
+
+let myLibrary = [];
 
 function Book(title, author, pages, isRead) {
   this.title = title;
@@ -63,8 +36,23 @@ exitModalBtn.addEventListener("click", () => {
 
 document.addEventListener("click", (e) => {
   if (e.target.matches("#modal")) {
-    modal.classList.remove('visible');
+    modal.classList.remove("visible");
   }
+});
+
+addToLibraryBtn.addEventListener("click", () => {
+  const newTitle = title.value.trim();
+  const newAuthor = author.value.trim();
+  const newPages = +pages.value;
+  const newIsRead = isRead.checked ? true : false;
+
+  addBookToLibrary(newTitle, newAuthor, newPages, newIsRead);
+
+  title.value = "";
+  author.value = "";
+  pages.value = "";
+  isRead.checked = false;
+  modal.classList.remove("visible");
 });
 
 function displayBooks() {
