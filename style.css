@@ -116,9 +116,20 @@ section.flex-container {
   border: 2px solid #000;
   color: white;
   background: #28a745;
+  transition: all 0.1s ease;
 }
+
+.card .button-group .btn-read:hover {
+  transform: translateY(-2px);
+}
+
 .card .button-group .btn-remove {
-    border: 2px solid #000;
-    color: white;
-    background: red;
+  border: 2px solid #000;
+  color: white;
+  background: red;
+  transition: all 0.1s ease;
+}
+
+.card .button-group .btn-remove:hover {
+  transform: translateY(-2px);
 }
