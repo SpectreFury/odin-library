@@ -16,21 +16,35 @@
   </head>
   <body>
     <div id="modal">
-      <form>
+      <form action="#">
         <a href="" class="btn-exit">
           <i class="fa-solid fa-xmark fa-2x"></i>
         </a>
         <div class="input-group">
           <label for="title">Title</label>
-          <input type="text" name="title" id="title" />
+          <input
+            type="text"
+            name="title"
+            id="title"
+            minlength="3"
+            maxlength="300"
+            required
+          />
         </div>
         <div class="input-group">
           <label for="author">Author</label>
-          <input type="text" name="author" id="author" />
+          <input
+            type="text"
+            name="author"
+            id="author"
+            required
+            minlength="3"
+            maxlength="300"
+          />
         </div>
         <div class="input-group">
           <label for="pages">Pages</label>
-          <input type="number" name="pages" id="pages" />
+          <input type="number" name="pages" id="pages" required min="0" max="1500"/>
         </div>
         <div class="input-group checkbox-group">
           <label for="read">Have you finished it?</label>
