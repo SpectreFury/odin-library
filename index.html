@@ -15,11 +15,36 @@
     <title>Library</title>
   </head>
   <body>
+    <div id="modal">
+      <form>
+        <a href="#" class="btn-exit">
+          <i class="fa-solid fa-xmark fa-2x"></i>
+        </a>
+        <div class="input-group">
+          <label for="title">Title</label>
+          <input type="text" name="title" id="title" />
+        </div>
+        <div class="input-group">
+          <label for="author">Author</label>
+          <input type="text" name="author" id="author" />
+        </div>
+        <div class="input-group">
+          <label for="pages">Pages</label>
+          <input type="number" name="pages" id="pages" />
+        </div>
+        <div class="input-group checkbox-group">
+          <label for="read">Have you finished it?</label>
+          <input type="checkbox" name="read" id="read" />
+        </div>
+
+        <button type="submit" id="addToLibrary">Add To Library</button>
+      </form>
+    </div>
     <nav>
       <a href="index.html">
         <i class="fa-solid fa-book fa-4x"></i>
       </a>
-      <button type="button">Add Books</button>
+      <button type="button" class="btn-add-books">Add Books</button>
     </nav>
     <section class="flex-container">
       <div class="card">

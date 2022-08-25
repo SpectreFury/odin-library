@@ -26,6 +26,7 @@ a {
 button {
   display: inline-block;
   font-family: "Roboto", sans-serif;
+  cursor: pointer;
   font-size: 20px;
   text-transform: uppercase;
   border: none;
@@ -43,6 +44,93 @@ button:hover {
   color: #2c3639;
 }
 
+#modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.visible {
+    display: flex !important;
+}
+
+form {
+  position: relative;
+  color: #2c3639;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 60%;
+  background-color: #dcd7c9;
+  padding: 60px 30px;
+  border-radius: 20px;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+}
+
+form a {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: black;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group label {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.input-group input {
+  font-size: 1.25rem;
+  padding: 0.5em;
+  background-color: rgba(0, 0, 0, 0.5);
+  outline: none;
+  border: none;
+  border-radius: 0.25em;
+  font-weight: 600;
+}
+
+.input-group input:focus {
+  box-shadow: 0 0 0 1px #2c3639;
+}
+
+.input-group.checkbox-group {
+  display: block;
+}
+
+.input-group.checkbox-group input {
+  margin-left: 20px;
+  margin-bottom: 40px;
+}
+
+#addToLibrary {
+  background: #2c3639;
+  padding: 20px;
+  border: none;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  transition: all 0.25s ease;
+}
+
+#addToLibrary:hover {
+  transform: translateY(-2px);
+  color: #dcd7c9;
+}
+
 nav {
   display: flex;
   width: 100%;
@@ -53,6 +141,9 @@ nav {
 }
 
 section.flex-container {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
   margin: 50px 0;
   width: 100%;
   padding: var(--px-xl);
@@ -66,6 +157,7 @@ section.flex-container {
   border-radius: 20px;
   color: #2c3639;
   padding: 20px;
+  box-shadow: 0px 3px 10px #000;
 }
 
 .card .text-group {
@@ -74,6 +166,7 @@ section.flex-container {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 .card .text-group .text-title {
